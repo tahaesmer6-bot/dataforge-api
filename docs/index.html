@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataForge API — Free Email Validation, Phone Validation, Text Analysis API</title>
+    <meta name="description" content="All-in-one data validation API. Email validation, phone validation, URL validation, text analysis, QR codes, hashing, IP geolocation. 25+ endpoints, free tier. One API key.">
+    <meta name="keywords" content="email validation api, phone validation api, free api, text analysis api, qr code api, hash api, ip geolocation api, rapidapi, developer tools, data validation">
+    <meta name="author" content="DataForge">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="DataForge API — All-in-One Data Validation API">
+    <meta property="og:description" content="Email validation, phone validation, text analysis, QR codes, hashing & IP geolocation. 25+ endpoints, free tier included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tahaesmer6-bot.github.io/dataforge-api/">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DataForge API — Free Data Validation API">
+    <meta name="twitter:description" content="25+ endpoints for email, phone, URL validation, text analysis, QR codes, hashing. Free tier included.">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a2e; line-height: 1.6; }
+
+        .hero {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 16px; font-weight: 800; }
+        .hero p { font-size: 1.3rem; opacity: 0.9; max-width: 700px; margin: 0 auto 32px; }
+        .hero .cta {
+            display: inline-block;
+            background: #00d4aa;
+            color: #0f0c29;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .hero .cta:hover { transform: scale(1.05); }
+        .hero .sub-cta { display: block; margin-top: 12px; opacity: 0.7; font-size: 0.9rem; }
+
+        .features {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .features h2 { text-align: center; font-size: 2rem; margin-bottom: 48px; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        .feature-card {
+            background: #f8f9ff;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #e8eaf6;
+        }
+        .feature-card .icon { font-size: 2rem; margin-bottom: 12px; }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .feature-card p { color: #555; font-size: 0.95rem; }
+
+        .pricing {
+            background: #f0f2ff;
+            padding: 80px 20px;
+        }
+        .pricing h2 { text-align: center; font-size: 2rem; margin-bottom: 48px; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .price-card.popular { border-color: #00d4aa; }
+        .price-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .price-card .price { font-size: 2.5rem; font-weight: 800; margin: 12px 0; }
+        .price-card .price span { font-size: 1rem; font-weight: 400; color: #888; }
+        .price-card .requests { color: #666; margin-bottom: 20px; }
+        .price-card a {
+            display: inline-block;
+            background: #302b63;
+            color: white;
+            padding: 10px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .price-card.popular a { background: #00d4aa; color: #0f0c29; }
+
+        .code-section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .code-section h2 { text-align: center; font-size: 2rem; margin-bottom: 32px; }
+        .code-block {
+            background: #1e1e2e;
+            color: #cdd6f4;
+            padding: 24px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .code-block .comment { color: #6c7086; }
+        .code-block .string { color: #a6e3a1; }
+        .code-block .keyword { color: #cba6f7; }
+
+        .comparison {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .comparison h2 { text-align: center; font-size: 2rem; margin-bottom: 32px; }
+        .comparison table { width: 100%; border-collapse: collapse; }
+        .comparison th, .comparison td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eee; }
+        .comparison th { background: #302b63; color: white; }
+        .comparison tr:hover { background: #f8f9ff; }
+
+        .final-cta {
+            background: linear-gradient(135deg, #302b63, #24243e);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .final-cta h2 { font-size: 2rem; margin-bottom: 16px; }
+        .final-cta p { opacity: 0.8; margin-bottom: 32px; }
+        .final-cta a {
+            display: inline-block;
+            background: #00d4aa;
+            color: #0f0c29;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        footer a { color: #302b63; }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>DataForge API</h1>
+    <p>Email validation, phone validation, text analysis, QR codes, hashing & IP geolocation — all in one API. Free tier included.</p>
+    <a href="https://rapidapi.com/tahaesmer6-bot/api/dataforge" class="cta">Get Free API Key →</a>
+    <span class="sub-cta">500 free requests/month • No credit card required</span>
+</section>
+
+<section class="features">
+    <h2>25+ Endpoints. One API Key.</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">📧</div>
+            <h3>Email Validation</h3>
+            <p>MX record verification, disposable email detection (140+ domains), free provider detection, role-based detection, deliverability scoring 0-100.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📱</div>
+            <h3>Phone Validation</h3>
+            <p>International phone validation with country detection, carrier info, line type identification, and E.164 formatting.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🔗</div>
+            <h3>URL Validation</h3>
+            <p>Validate URLs with optional live HTTP check. Verify the URL actually returns a response.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Text Analysis</h3>
+            <p>Word count, reading time, Flesch readability scores, sentiment analysis, word frequency — all in one call.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🔐</div>
+            <h3>Hashing & Security</h3>
+            <p>10+ algorithms (SHA-256, BLAKE2, etc.), HMAC, hash comparison, password generation, UUID, and secure tokens.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📲</div>
+            <h3>QR Codes & IP Lookup</h3>
+            <p>Generate QR codes as base64 or image. IP geolocation with country, city, timezone, ISP data.</p>
+        </div>
+    </div>
+</section>
+
+<section class="code-section">
+    <h2>Dead Simple to Use</h2>
+    <div class="code-block">
+        <span class="keyword">import</span> requests<br><br>
+        <span class="comment"># Validate an email in one call</span><br>
+        response = requests.get(<br>
+        &nbsp;&nbsp;<span class="string">"https://dataforge.p.rapidapi.com/validate/email"</span>,<br>
+        &nbsp;&nbsp;headers={<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"X-RapidAPI-Key"</span>: <span class="string">"YOUR_KEY"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"X-RapidAPI-Host"</span>: <span class="string">"dataforge.p.rapidapi.com"</span><br>
+        &nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;params={<span class="string">"email"</span>: <span class="string">"user@example.com"</span>}<br>
+        )<br><br>
+        <span class="comment"># Returns: is_valid, score, MX check, disposable check...</span><br>
+        print(response.json())
+    </div>
+</section>
+
+<section class="comparison">
+    <h2>Why Pay More?</h2>
+    <table>
+        <tr><th>Service</th><th>Separate APIs</th><th>DataForge</th></tr>
+        <tr><td>Email Validation</td><td>$29/mo</td><td rowspan="6" style="vertical-align: middle; font-weight: 700; font-size: 1.5rem; color: #00d4aa; text-align: center;">$0 — $9.99/mo<br><small style="font-weight: 400; color: #888;">Everything included</small></td></tr>
+        <tr><td>Phone Validation</td><td>$19/mo</td></tr>
+        <tr><td>Text Analysis</td><td>$15/mo</td></tr>
+        <tr><td>QR Code Generation</td><td>$9/mo</td></tr>
+        <tr><td>Hashing Tools</td><td>$9/mo</td></tr>
+        <tr><td>IP Geolocation</td><td>$5/mo</td></tr>
+        <tr style="font-weight: 700;"><td>Total</td><td style="color: #e74c3c;">$86/mo</td></tr>
+    </table>
+</section>
+
+<section class="pricing">
+    <h2>Simple Pricing</h2>
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>Basic</h3>
+            <div class="price">$0<span>/mo</span></div>
+            <div class="requests">500 requests/month</div>
+            <a href="https://rapidapi.com/tahaesmer6-bot/api/dataforge">Start Free</a>
+        </div>
+        <div class="price-card popular">
+            <h3>Pro ⭐</h3>
+            <div class="price">$9.99<span>/mo</span></div>
+            <div class="requests">10,000 requests/month</div>
+            <a href="https://rapidapi.com/tahaesmer6-bot/api/dataforge">Subscribe</a>
+        </div>
+        <div class="price-card">
+            <h3>Ultra</h3>
+            <div class="price">$19.99<span>/mo</span></div>
+            <div class="requests">50,000 requests/month</div>
+            <a href="https://rapidapi.com/tahaesmer6-bot/api/dataforge">Subscribe</a>
+        </div>
+        <div class="price-card">
+            <h3>Mega</h3>
+            <div class="price">$49.99<span>/mo</span></div>
+            <div class="requests">500,000 requests/month</div>
+            <a href="https://rapidapi.com/tahaesmer6-bot/api/dataforge">Subscribe</a>
+        </div>
+    </div>
+</section>
+
+<section class="final-cta">
+    <h2>Start Validating Data in 30 Seconds</h2>
+    <p>Get your free API key. No credit card. No commitment.</p>
+    <a href="https://rapidapi.com/tahaesmer6-bot/api/dataforge">Get Free API Key →</a>
+</section>
+
+<footer>
+    <p>DataForge API — Built with ❤️ using Python & FastAPI | <a href="https://github.com/tahaesmer6-bot/dataforge-api">Open Source on GitHub</a></p>
+</footer>
+
+</body>
+</html>
