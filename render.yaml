@@ -1,0 +1,14 @@
+# render.yaml - Render.com deployment config (FREE tier available)
+services:
+  - type: web
+    name: dataforge-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "60"
+    healthCheckPath: /health
+    plan: free
